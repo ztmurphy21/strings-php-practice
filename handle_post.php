@@ -16,9 +16,16 @@ $posting = nl2br($_POST['posting'], false);
 //create a full name variable for concatenation
 $name = $first_name . ' ' . $last_name;
 
+//get word count
+$words = str_word_count($posting);
+
+//get snippet of the posting
+$posting = substr($posting, 0, 50);
+
 //output message to user
 print "<div>Thank you, $name,for your posting:
-    <p>$posting</p></div>";
+    <p>$posting....</p>
+    <p>($words words)</div>";
 
 //make a link to another page
 $name = urlencode($name);

@@ -19,6 +19,11 @@ $name = $first_name . ' ' . $last_name;
 //output message to user
 print "<div>Thank you, $name,for your posting:
     <p>$posting</p></div>";
+
+//make a link to another page
+$name = urlencode($name);
+$email = urlencode($_POST['email']);
+print"<p>Click <a href=\"thanks.php?$name&$email=$email\">here</a> to continue.</p>";
 ?>
 </body>
 </html>

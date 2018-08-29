@@ -9,8 +9,8 @@
 /*This script receives five values from posting.html: first_name, last_name, email, posting, submit*/
 
 //get values from the $_POST array:
-$first_name = $_POST['first_name'];
-$last_name = $_POST['last_name'];
+$first_name = trim($_POST['first_name']);
+$last_name = trim($_POST['last_name']);
 $posting = nl2br($_POST['posting'], false);
 
 //create a full name variable for concatenation
@@ -21,6 +21,9 @@ $words = str_word_count($posting);
 
 //get snippet of the posting
 $posting = substr($posting, 0, 50);
+
+//take out bad words
+$posting = str_ireplace('badword', 'XXXXXXXX', $posting);
 
 //output message to user
 print "<div>Thank you, $name,for your posting:
